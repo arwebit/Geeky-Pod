@@ -18,6 +18,8 @@ export class LatestPodcastComponent implements OnInit {
 
   imageURL: string = `${environment.imagesURL}`;
 
+  latestPodcasts: any = [];
+
   constructor(private router: Router, private episodeSrv: EpisodesService) {
     this.getEpisodeList();
   }
@@ -27,16 +29,18 @@ export class LatestPodcastComponent implements OnInit {
   getEpisodeList() {
     const data = {
       filter: {
-        condition: [['is_popular', '=', 'yes']],
+        condition: [['is_active', '=', 'yes']],
       },
       start_row: 0,
-      page_records: 1,
+      page_records: 15,
       sort_field: 'episode_date',
       sort: -1,
     };
 
     this.episodeSrv.getEpisodes(data).subscribe(
       (result: any) => {
+        console.log(result.rows);
+        this.latestPodcasts = result.rows;
         const [details] = result.rows;
         this.episodeImage = `${this.imageURL}/${details.episode_image}`;
         this.episodeTitle = details.episode_title;

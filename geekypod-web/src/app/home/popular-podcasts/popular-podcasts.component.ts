@@ -86,9 +86,6 @@ export class PopularPodcastsComponent {
     this.episodeSrv.getEpisodes(data).subscribe(
       (result: any) => {
         this.episodes = result.rows;
-        setTimeout(() => {
-          this.slider(); // Ensure cards exist before observing them
-        }, 500);
       },
       (err: HttpErrorResponse) => {
         alert('No genres found');

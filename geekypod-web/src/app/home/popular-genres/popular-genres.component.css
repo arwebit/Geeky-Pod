@@ -1,30 +1,16 @@
-.custom-carousel .p-carousel-content {
-  overflow: hidden;
-}
+@import "../../../../output.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-.carousel-item-container {
-  border-radius: 8px;
-  margin: 8px;
-  padding: 16px;
-  text-align: center;
+body {
+  font-family: "Inter", sans-serif;
 }
-
-.image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 12px;
+.gradient-bg {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
 }
-
-.genre-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.genre-title h4 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: var(--text-color);
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }

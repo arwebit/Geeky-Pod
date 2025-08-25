@@ -1,54 +1,45 @@
-<!-- Latest Podcast Start -->
-<div class="container-fluid about py-5">
-  <div class="container py-5">
-    <div class="row g-5 align-items-center">
-      <div class="col-lg-5">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div
+    class="relative rounded-lg shadow-md overflow-hidden card-hover p-6"
+    *ngFor="let podcasts of latestPodcasts"
+  >
+    <!-- Background image with opacity -->
+    <div
+      class="absolute inset-0 bg-cover bg-center opacity-40"
+      [ngStyle]="{
+        'background-image':
+          'url(' + imageURL + '/' + podcasts.episode_image + ')'
+      }"
+    ></div>
+
+    <!-- Content on top -->
+    <div class="relative z-10 flex flex-col h-full">
+      <div class="flex items-center mb-4">
         <div
-          class="h-100"
-          style="
-            border: 50px solid;
-            border-color: transparent #13357b transparent #13357b;
-          "
+          class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-black font-bold"
         >
-          <img
-            [src]="episodeImage"
-            class="img-fluid w-100 h-100"
-            [alt]="episodeTitle"
-          />
+          # {{ podcasts.episode_no }}
+        </div>
+        <div class="ml-4">
+          <h3 class="font-semibold text-gray-800">&nbsp;</h3>
+          <p class="text-sm text-gray-500">&nbsp;</p>
         </div>
       </div>
-      <div
-        class="col-lg-7"
-        style="
-          background: linear-gradient(
-            rgba(255, 255, 255, 0.8),
-            rgba(255, 255, 255, 0.8)
-          );
-        "
-      >
-        <h5 class="section-about-title pe-3">Latest Podcast</h5>
-        <h1 class="mb-4">
-          {{ episodeTitle }}
-        </h1>
-        <p class="mb-4">
-          {{ episodeDescription }}
-        </p>
-
+      <p class="text-gray-600 mb-4">&nbsp;</p>
+      <div class="flex gap-2">
         <a
-          *ngIf="episodeSpotifyLink"
-          class="btn btn-success rounded-pill py-3 px-5 mt-2"
-          [href]="episodeSpotifyLink"
-          target="_blank"
-          >Listen on Spotify</a
-        >&nbsp;
-        <a
-          class="btn btn-danger rounded-pill py-3 px-5 mt-2"
-          [href]="episodeYoutubeLink"
-          target="_blank"
-          >Watch on Youtube</a
+          *ngIf="podcasts.episode_youtube_link"
+          class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full text-sm transition duration-300"
         >
+          Youtube
+        </a>
+        <a
+          *ngIf="podcasts.episode_spotify_link"
+          class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm transition duration-300"
+        >
+          Spotify
+        </a>
       </div>
     </div>
   </div>
 </div>
-<!--Latest Podcast End -->

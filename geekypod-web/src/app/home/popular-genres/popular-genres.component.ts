@@ -43,6 +43,9 @@ export class PopularGenresComponent {
     ];
   }
 
+  genrePage(slug: any) {
+    this.router.navigate(['genre', slug, 'page', 1]);
+  }
   getGenreList() {
     const data = {
       filter: {
