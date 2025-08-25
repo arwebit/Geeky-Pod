@@ -1,43 +1,51 @@
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
   <div
-    class="relative rounded-lg shadow-md overflow-hidden card-hover p-6"
+    class="relative rounded-lg shadow-md overflow-hidden group p-6"
     *ngFor="let podcasts of episodes"
   >
-    <!-- Background image with opacity -->
+    <!-- Background image -->
     <div
-      class="absolute inset-0 bg-cover bg-center opacity-40"
+      class="absolute inset-0 bg-cover bg-center transition duration-500 group-hover:opacity-50"
       [ngStyle]="{
         'background-image':
-          'url(' + imageURL + '/' + podcasts.episode_image + ')'
+          'url(' + imageURL + '/' + podcasts.episode_image + ')',
+        'background-size': 'cover',
+        'background-position': 'center'
       }"
     ></div>
 
-    <!-- Content on top -->
-    <div class="relative z-10 flex flex-col h-full">
-      <div class="flex items-center mb-4">
-        <div
-          class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-black font-bold"
-        >
-          # {{ podcasts.episode_no }}
+    <!-- Content -->
+    <div class="relative z-10 flex flex-col h-full justify-between">
+      <div>
+        <div class="flex items-center mb-4">
+          <div
+            class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-black font-bold opacity-0"
+          >
+            &nbsp;
+          </div>
         </div>
-        <div class="ml-4">
-          <h3 class="font-semibold text-gray-800">&nbsp;</h3>
-          <p class="text-sm text-gray-500">&nbsp;</p>
-        </div>
+        <p class="text-gray-600 mb-4">&nbsp;</p>
       </div>
-      <p class="text-gray-600 mb-4">&nbsp;</p>
-      <div class="flex gap-2">
+
+      <!-- Centered Buttons -->
+      <div
+        class="flex justify-center gap-4 opacity-0 group-hover:opacity-100 transition duration-500"
+      >
         <a
           *ngIf="podcasts.episode_youtube_link"
+          target="_blank"
           class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full text-sm transition duration-300"
+          [href]="podcasts.episode_youtube_link"
         >
-          Youtube
+          <i class="fab fa-youtube"></i> Youtube
         </a>
         <a
           *ngIf="podcasts.episode_spotify_link"
+          target="_blank"
+          [href]="podcasts.episode_spotify_link"
           class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm transition duration-300"
         >
-          Spotify
+          <i class="fab fa-spotify"></i> Spotify
         </a>
       </div>
     </div>

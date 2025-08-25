@@ -1,33 +1,33 @@
-<!-- <div class="container-fluid position-relative p-0">
-  <app-top></app-top>
-
-  <app-sliders></app-sliders>
-</div>
-<app-popular-podcasts></app-popular-podcasts>
-<app-popular-genres></app-popular-genres>
-<app-newsletter></app-newsletter>
-<app-bottom></app-bottom> -->
 <header class="gradient-bg text-white">
   <div class="container mx-auto px-6 py-8">
     <div class="text-center">
-      <h1 class="text-5xl font-bold mb-4">🎧 The Geeky Pod</h1>
+      <h3
+        class="logo-text flex items-center justify-center gap-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4"
+      >
+        <img
+          src="/img/logo.png"
+          alt="Logo"
+          class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
+        />
+        <span>The Geeky Pod</span>
+      </h3>
       <p class="text-xl opacity-90 mb-6">
-        Your Ultimate Destination for Geek Culture, Tech, Gaming & More
+        Technology, Software, Career, Experiences & More
       </p>
       <div class="flex justify-center space-x-4">
         <a
           [href]="youtubeLink"
           target="_blank"
-          class="bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-full font-semibold transition duration-300 flex items-center text-black"
+          class="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-full font-semibold transition duration-300 flex items-center text-black"
         >
-          📺 YouTube
+          <i class="fab fa-youtube"></i> &nbsp; YouTube
         </a>
         <a
           [href]="spotifyLink"
           target="_blank"
-          class="bg-yellow-400 hover:bg-yellow-500 px-6 py-3 rounded-full font-semibold transition duration-300 flex items-center text-black"
+          class="bg-green-400 hover:bg-green-500 px-6 py-3 rounded-full font-semibold transition duration-300 flex items-center text-black"
         >
-          🎵 Spotify
+          <i class="fab fa-spotify"></i> &nbsp; Spotify
         </a>
       </div>
     </div>
@@ -75,16 +75,16 @@
         <a
           [href]="youtubeLink"
           target="_blank"
-          class="bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-full font-semibold transition duration-300 text-black"
+          class="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-full font-semibold transition duration-300 text-black"
         >
-          📺 Subscribe on YouTube
+          <i class="fab fa-youtube"></i> &nbsp; Subscribe on YouTube
         </a>
         <a
           [href]="spotifyLink"
           target="_blank"
-          class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition duration-300"
+          class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-full font-semibold transition duration-300"
         >
-          🎵 Follow on Spotify
+          <i class="fab fa-spotify"></i> &nbsp; Follow on Spotify
         </a>
       </div>
       <p class="text-gray-400 text-sm">
