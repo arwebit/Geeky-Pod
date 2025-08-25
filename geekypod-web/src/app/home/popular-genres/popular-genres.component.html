@@ -1,0 +1,36 @@
+<!-- Packages Start -->
+<div class="container-fluid packages gap-remove">
+  <div class="container py-5">
+    <div class="mx-auto text-center mb-5" style="max-width: 900px">
+      <h5 class="section-title px-3">Popular Genres</h5>
+    </div>
+    <div class="packages-carousel gap-remove">
+      <p-carousel
+        [value]="genres"
+        [numVisible]="3"
+        [numScroll]="3"
+        [circular]="true"
+        [responsiveOptions]="responsiveOptions"
+        styleClass="custom-carousel"
+      >
+        <ng-template let-genre pTemplate="item">
+          <a [routerLink]="['genre', genre.genre_slug, 'page', 1]">
+            <div class="carousel-item-container">
+              <div class="image-container">
+                <img
+                  [src]="imageURL + '/' + genre.genre_image"
+                  [alt]="genre.genre_name"
+                  class="genre-image"
+                />
+              </div>
+              <div class="genre-title">
+                <h4>{{ genre.genre_name }}</h4>
+              </div>
+            </div>
+          </a>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+</div>
+<!-- Packages End -->

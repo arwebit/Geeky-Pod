@@ -1,0 +1,49 @@
+<!-- Packages Start -->
+<div class="container-fluid packages gap-remove">
+  <div class="container py-5">
+    <div class="mx-auto text-center mb-5" style="max-width: 900px">
+      <h5 class="section-title px-3">Popular Podcasts</h5>
+    </div>
+
+    <div class="packages-carousel gap-remove">
+      <div class="slider-container">
+        <div class="card" *ngFor="let episode of episodes">
+          <img
+            [src]="imageURL + '/' + episode.episode_image"
+            [alt]="episode.episode_title"
+            style="opacity: 0.4"
+          />
+          <div class="card-content">
+            <!-- <h2>{{ episode.episode_title | shorten : 60 }}</h2> -->
+            <div class="actions">
+              <a
+                *ngIf="episode.episode_spotify_link"
+                [href]="episode.episode_spotify_link"
+                style="font-size: 25px"
+                class="btn btn-success btn-space"
+                target="_blank"
+                pTooltip="Spotify"
+              >
+                <i class="fab fa-spotify"></i>
+              </a>
+              <a
+                *ngIf="episode.episode_youtube_link"
+                [href]="episode.episode_youtube_link"
+                style="font-size: 25px"
+                class="btn btn-danger btn-space"
+                target="_blank"
+                pTooltip="Youtube"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <a routerLink="podcasts/page/1" class="btn btn-info">See All</a>
+    </div>
+  </div>
+</div>
+<!-- Packages End -->

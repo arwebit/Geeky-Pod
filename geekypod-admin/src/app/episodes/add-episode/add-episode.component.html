@@ -1,0 +1,257 @@
+<div class="container-xxl position-relative bg-white d-flex p-0">
+  <app-sidebar></app-sidebar>
+
+  <!-- Content Start -->
+  <div class="content">
+    <app-top></app-top>
+
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4">
+      <div class="row g-4">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+          <div class="float-start">
+            <h4>Add Episode</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-12">
+          <form [formGroup]="addEpisodeForm">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="field">
+                  <label for="episode_no" class="label-field"
+                    >Episode No.</label
+                  >
+                  <span class="error"> * {{ episodeNoErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="1"
+                    placeholder="Episode no"
+                    class="form-control"
+                    formControlName="episode_no"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field">
+                  <label for="episode_season" class="label-field"
+                    >Episode Season</label
+                  >
+                  <span class="error"> * {{ episodeSeasonErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="2"
+                    placeholder="Episode Season"
+                    class="form-control"
+                    formControlName="episode_season"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field">
+                  <label for="episode_title" class="label-field"
+                    >Episode Title</label
+                  >
+                  <span class="error"> * {{ episodeTitleErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="3"
+                    placeholder="Episode Title"
+                    class="form-control"
+                    formControlName="episode_title"
+                    (keyup)="getEpisodeTitleSlug($event)"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field">
+                  <label for="episode_title_slug" class="label-field"
+                    >Episode Title Slug</label
+                  >
+                  <span class="error"> * {{ episodeTitleSlugErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="4"
+                    placeholder="Episode Title Slug"
+                    class="form-control"
+                    formControlName="episode_title_slug"
+                    [(ngModel)]="episodeTitleSlug"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field">
+                  <label for="episode_description" class="label-field"
+                    >Episode Description</label
+                  >
+                  <span class="error"> * {{ episodeDescriptionErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="5"
+                    placeholder="Episode Description"
+                    class="form-control"
+                    formControlName="episode_description"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field">
+                  <label for="episode_date" class="label-field"
+                    >Episode Date</label
+                  >
+                  <span class="error"> * {{ episodeDateErr }} </span>
+                  <input
+                    type="date"
+                    tabindex="6"
+                    placeholder="Episode Date"
+                    class="form-control"
+                    formControlName="episode_date"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field">
+                  <label for="podcaster_id" class="label-field"
+                    >Episode Podcaster</label
+                  >
+                  <span class="error"> * {{ episodePodcasterErr }} </span>
+                  <select
+                    formControlName="podcaster_id"
+                    tabindex="7"
+                    class="form-control"
+                  >
+                    <option value="">Select Podcaster</option>
+                    <option
+                      *ngFor="let podcasterList of podcasterLists"
+                      [value]="podcasterList.podcaster_id"
+                    >
+                      {{ podcasterList.podcaster_full_name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field">
+                  <label for="genre_id" class="label-field"
+                    >Episode Genre</label
+                  >
+                  <span class="error"> * {{ episodeGenreErr }} </span>
+                  <select
+                    formControlName="genre_id"
+                    tabindex="8"
+                    class="form-control"
+                  >
+                    <option value="">Select Genre</option>
+                    <option
+                      *ngFor="let genreList of genreLists"
+                      [value]="genreList.genre_id"
+                    >
+                      {{ genreList.genre_name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field">
+                  <label for="episode_spotify_link" class="label-field"
+                    >Episode Spotify Link</label
+                  >
+                  <span class="error"> {{ episodeSpotifyLinkErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="9"
+                    placeholder="Episode Spotify Link"
+                    class="form-control"
+                    formControlName="episode_spotify_link"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field">
+                  <label for="episode_youtube_link" class="label-field"
+                    >Episode Youtube Link</label
+                  >
+                  <span class="error"> * {{ episodeYouTubeLinkErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="10"
+                    placeholder="Episode Youtube Link"
+                    class="form-control"
+                    formControlName="episode_youtube_link"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field">
+                  <label for="is_popular" class="label-field">Popular</label>
+                  <span class="error"> *</span>
+                  <select
+                    class="form-control"
+                    formControlName="is_popular"
+                    tabindex="11"
+                  >
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field">
+                  <label for="episode_image" class="label-field"
+                    >Episode Image</label
+                  >
+                  <span class="error"> * {{ episodeImageErr }} </span><br />
+                  <div *ngIf="addEpisodeImgView; else bla">
+                    <img
+                      [src]="addImage"
+                      style="margin-bottom: 10px; width: 150px; height: 100px"
+                      id="add-image"
+                    />
+                  </div>
+                  <ng-template #bla>
+                    <img
+                      [src]=""
+                      style="margin-bottom: 10px; width: 150px; height: 100px"
+                      id="add-image"
+                    />
+                  </ng-template>
+                  <input
+                    type="file"
+                    tabindex="12"
+                    accept="image/*"
+                    id="add_upload_image"
+                    class="form-control"
+                    (change)="uploadImage($event)"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="saveload">
+              <button
+                type="submit"
+                tabindex="13"
+                class="btn btn-primary"
+                (click)="addEpisodes()"
+              >
+                Save
+              </button>
+              <label
+                class="alert-success"
+                style="font-weight: bold; padding: 8px; margin-left: 15px"
+                *ngIf="message"
+              >
+                {{ message }}</label
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Sale & Revenue End -->
+
+    <app-footer></app-footer>
+  </div>
+  <!-- Content End -->
+</div>

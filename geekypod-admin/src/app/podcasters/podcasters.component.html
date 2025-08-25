@@ -1,0 +1,101 @@
+<div class="container-xxl position-relative bg-white d-flex p-0">
+  <app-sidebar></app-sidebar>
+
+  <!-- Content Start -->
+  <div class="content">
+    <app-top></app-top>
+
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4">
+      <div class="row g-4">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+          <div class="float-start">
+            <h4>Podcasters</h4>
+          </div>
+          <div class="float-end">
+            <button class="btn btn-primary">
+              <i class="pi pi-plus" (click)="redirectAdd()"></i>
+            </button>
+          </div>
+          <div class="table-responsive" style="clear: both">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" *ngFor="let column of columns">
+                    {{ column.option_name }}
+                  </th>
+                  <th>Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let podcasterLists of podcasterList">
+                  <td *ngFor="let column of columns">
+                    <span
+                      *ngIf="column.value === 'podcaster_image'; else normal"
+                    >
+                      <img
+                        [src]="imageURL + '/' + podcasterLists[column.value]"
+                        width="100"
+                        height="100"
+                      />
+                    </span>
+                    <ng-template #normal>
+                      {{ podcasterLists[column.value] }}
+                    </ng-template>
+                  </td>
+                  <td>
+                    <a
+                      [routerLink]="[
+                        '/podcasters/edit',
+                        podcasterLists.podcaster_id
+                      ]"
+                    >
+                      <i class="pi pi-pencil"></i>
+                    </a>
+                    &nbsp;&nbsp;
+                    <i
+                      class="pi pi-trash"
+                      (click)="deletePodcaster(podcasterLists)"
+                    ></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br />
+          <div style="clear: both"></div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-3" style="font-size: 13px; margin-top: 23px">
+          {{ recordsInfo }}
+        </div>
+        <div class="col-lg-6">
+          <p-paginator
+            (onPageChange)="pageChange($event)"
+            [first]="getStartIndex()"
+            [rows]="pageRecords"
+            [totalRecords]="totalRecords"
+          ></p-paginator>
+        </div>
+        <div class="col-lg-3" style="font-size: 13px; margin-top: 16px">
+          Show :
+          <select
+            id="per-page"
+            [(ngModel)]="pageRecords"
+            (change)="pagination()"
+          >
+            <option *ngFor="let pagers of pager" [value]="pagers">
+              {{ pagers }}
+            </option>
+          </select>
+          records
+        </div>
+      </div>
+    </div>
+    <!-- Sale & Revenue End -->
+
+    <app-footer></app-footer>
+  </div>
+  <!-- Content End -->
+</div>

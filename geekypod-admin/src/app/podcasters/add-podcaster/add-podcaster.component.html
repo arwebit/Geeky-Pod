@@ -1,0 +1,159 @@
+<div class="container-xxl position-relative bg-white d-flex p-0">
+  <app-sidebar></app-sidebar>
+
+  <!-- Content Start -->
+  <div class="content">
+    <app-top></app-top>
+
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4">
+      <div class="row g-4">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+          <div class="float-start">
+            <h4>Add Podcaster</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-12">
+          <form [formGroup]="addPodcasterForm">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="field">
+                  <label for="podcaster_full_name" class="label-field"
+                    >Podcaster name</label
+                  >
+                  <span class="error"> * {{ podcasterNameErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="1"
+                    placeholder="Podcaster name"
+                    class="form-control"
+                    formControlName="podcaster_full_name"
+                    (keyup)="getPodcasterSlug($event)"
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="podcaster_slug" class="label-field"
+                    >Podcaster slug</label
+                  >
+                  <span class="error"> * {{ podcasterSlugErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="2"
+                    placeholder="Podcaster slug"
+                    class="form-control"
+                    formControlName="podcaster_slug"
+                    [(ngModel)]="podcasterSlug"
+                  />
+                </div>
+                <div class="field">
+                  <label for="podcaster_bio" class="label-field"
+                    >Podcaster Bio</label
+                  >
+                  <span class="error"> {{ podcasterBioErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="3"
+                    placeholder="Podcaster Bio"
+                    class="form-control"
+                    formControlName="podcaster_bio"
+                  />
+                </div>
+                <div class="field">
+                  <label for="podcaster_designation" class="label-field"
+                    >Podcaster Designation</label
+                  >
+                  <span class="error"> * {{ podcasterDesignationErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="4"
+                    placeholder="Podcaster Designation"
+                    class="form-control"
+                    formControlName="podcaster_designation"
+                  />
+                </div>
+                <div class="field">
+                  <label for="podcaster_popular" class="label-field"
+                    >Podcaster Popular</label
+                  >
+                  <span class="error"> *</span>
+                  <select
+                    class="form-control"
+                    tabindex="5"
+                    formControlName="podcaster_popular"
+                  >
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="podcaster_image" class="label-field"
+                    >Podcaster Image</label
+                  >
+                  <span class="error"> * {{ podcasterImageErr }} </span><br />
+                  <div *ngIf="addPodcasterImgView; else bla">
+                    <img
+                      [src]="addImage"
+                      style="
+                        margin-bottom: 10px;
+                        width: 150px;
+                        height: 100px;
+                        margin-top: 5px;
+                      "
+                      id="add-image"
+                    />
+                  </div>
+                  <ng-template #bla>
+                    <img
+                      [src]=""
+                      style="
+                        margin-bottom: 10px;
+                        width: 150px;
+                        height: 100px;
+                        margin-top: 5px;
+                      "
+                      id="add-image"
+                    />
+                  </ng-template>
+                  <input
+                    type="file"
+                    tabindex="6"
+                    accept="image/*"
+                    id="add_upload_image"
+                    class="form-control"
+                    tabindex="6"
+                    (change)="uploadImage($event)"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="saveload">
+              <button
+                type="submit"
+                tabindex="7"
+                class="btn btn-primary"
+                (click)="addPodcasters()"
+              >
+                Save
+              </button>
+              <label
+                class="alert-success"
+                style="font-weight: bold; padding: 8px; margin-left: 15px"
+                *ngIf="message"
+              >
+                {{ message }}</label
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Sale & Revenue End -->
+
+    <app-footer></app-footer>
+  </div>
+  <!-- Content End -->
+</div>

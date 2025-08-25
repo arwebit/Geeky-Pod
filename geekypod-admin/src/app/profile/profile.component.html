@@ -1,0 +1,149 @@
+<div class="container-xxl position-relative bg-white d-flex p-0">
+  <app-sidebar></app-sidebar>
+
+  <!-- Content Start -->
+  <div class="content">
+    <app-top></app-top>
+
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4">
+      <div class="row g-4">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+          <div class="float-start">
+            <h4>Update Profile</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-12">
+          <form [formGroup]="updateUserForm">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="field">
+                  <label for="username" class="label-field">User name</label>
+                  <span class="error"> * {{ userNameErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="1"
+                    placeholder="User name"
+                    class="form-control"
+                    formControlName="username"
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="full_name" class="label-field">Full name</label>
+                  <span class="error"> * {{ fullNameErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="2"
+                    placeholder="Full name"
+                    class="form-control"
+                    formControlName="full_name"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="saveload" style="margin-top: 10px">
+              <button
+                type="submit"
+                tabindex="3"
+                class="btn btn-primary"
+                (click)="updateUser()"
+              >
+                Update
+              </button>
+              <label
+                class="alert-success"
+                style="font-weight: bold; padding: 8px; margin-left: 15px"
+                *ngIf="message"
+              >
+                {{ message }}</label
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- //////////////////////////////////////////////// -->
+      <div class="row g-4" style="margin-top: 20px">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+          <div class="float-start">
+            <h4>Change Password</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-12">
+          <form [formGroup]="changePasswordForm">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="field">
+                  <label for="old_password" class="label-field"
+                    >Old Password</label
+                  >
+                  <span class="error"> * {{ oldPasswordErr }} </span>
+                  <input
+                    type="password"
+                    tabindex="4"
+                    placeholder="Old Password"
+                    class="form-control"
+                    formControlName="old_password"
+                  />
+                </div>
+                <div class="field">
+                  <label for="new_password" class="label-field"
+                    >New Password</label
+                  >
+                  <span class="error"> * {{ newPasswordErr }} </span>
+                  <input
+                    type="password"
+                    tabindex="5"
+                    placeholder="New Password"
+                    class="form-control"
+                    formControlName="new_password"
+                  />
+                </div>
+                <div class="field">
+                  <label for="confirm_password" class="label-field"
+                    >Confirm Password</label
+                  >
+                  <span class="error"> * {{ confirmPasswordErr }} </span>
+                  <input
+                    type="password"
+                    tabindex="6"
+                    placeholder="Confirm Password"
+                    class="form-control"
+                    formControlName="confirm_password"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="saveload" style="margin-top: 10px">
+              <button
+                type="submit"
+                tabindex="7"
+                class="btn btn-primary"
+                (click)="updatePassword()"
+              >
+                Change Password
+              </button>
+              <label
+                class="alert-success"
+                style="font-weight: bold; padding: 8px; margin-left: 15px"
+                *ngIf="passMessage"
+              >
+                {{ passMessage }}</label
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Sale & Revenue End -->
+
+    <app-footer></app-footer>
+  </div>
+  <!-- Content End -->
+</div>

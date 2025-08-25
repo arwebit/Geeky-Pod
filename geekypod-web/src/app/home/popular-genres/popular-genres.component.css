@@ -1,0 +1,30 @@
+.custom-carousel .p-carousel-content {
+  overflow: hidden;
+}
+
+.carousel-item-container {
+  border-radius: 8px;
+  margin: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.genre-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.genre-title h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text-color);
+}

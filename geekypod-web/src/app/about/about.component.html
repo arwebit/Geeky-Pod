@@ -1,0 +1,56 @@
+<div class="container-fluid position-relative p-0">
+  <app-top></app-top>
+</div>
+<!-- Navbar & Hero End -->
+
+<!-- Header Start -->
+<div class="container-fluid bg-breadcrumb">
+  <div class="container text-center py-5" style="max-width: 900px">
+    <h3 class="text-white display-3 mb-4">About</h3>
+  </div>
+</div>
+<!-- Header End -->
+
+<div class="container-fluid about py-5">
+  <div class="container py-5">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5">
+        <div
+          class="h-100"
+          style="
+            border: 50px solid;
+            border-color: transparent #13357b transparent #13357b;
+          "
+        >
+          <img [src]="aboutPic" class="img-fluid w-100 h-100" alt="" />
+        </div>
+      </div>
+      <div
+        class="col-lg-7"
+        style="
+          background: linear-gradient(
+              rgba(255, 255, 255, 0.8),
+              rgba(255, 255, 255, 0.8)
+            ),
+            url(img/about-img-1.png);
+        "
+      >
+        <h5 class="section-about-title pe-3">About Us</h5>
+
+        <p class="mb-4">
+          {{ aboutMe }}
+        </p>
+        <a
+          [href]="aboutButtonLink"
+          target="_blank"
+          *ngIf="aboutButton && aboutButtonLink"
+          class="btn btn-info"
+        >
+          {{ aboutButton }}</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About End -->
+<app-bottom></app-bottom>

@@ -1,0 +1,54 @@
+<!-- Latest Podcast Start -->
+<div class="container-fluid about py-5">
+  <div class="container py-5">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5">
+        <div
+          class="h-100"
+          style="
+            border: 50px solid;
+            border-color: transparent #13357b transparent #13357b;
+          "
+        >
+          <img
+            [src]="episodeImage"
+            class="img-fluid w-100 h-100"
+            [alt]="episodeTitle"
+          />
+        </div>
+      </div>
+      <div
+        class="col-lg-7"
+        style="
+          background: linear-gradient(
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0.8)
+          );
+        "
+      >
+        <h5 class="section-about-title pe-3">Latest Podcast</h5>
+        <h1 class="mb-4">
+          {{ episodeTitle }}
+        </h1>
+        <p class="mb-4">
+          {{ episodeDescription }}
+        </p>
+
+        <a
+          *ngIf="episodeSpotifyLink"
+          class="btn btn-success rounded-pill py-3 px-5 mt-2"
+          [href]="episodeSpotifyLink"
+          target="_blank"
+          >Listen on Spotify</a
+        >&nbsp;
+        <a
+          class="btn btn-danger rounded-pill py-3 px-5 mt-2"
+          [href]="episodeYoutubeLink"
+          target="_blank"
+          >Watch on Youtube</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<!--Latest Podcast End -->

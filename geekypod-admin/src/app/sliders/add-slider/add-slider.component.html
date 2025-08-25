@@ -1,0 +1,133 @@
+<div class="container-xxl position-relative bg-white d-flex p-0">
+  <app-sidebar></app-sidebar>
+
+  <!-- Content Start -->
+  <div class="content">
+    <app-top></app-top>
+
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4">
+      <div class="row g-4">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+          <div class="float-start">
+            <h4>Add Slider</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-12">
+          <form [formGroup]="addSliderForm">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="field">
+                  <label for="slider_image" class="label-field"
+                    >Slider Image</label
+                  >
+                  <span class="error"> * {{ sliderImageErr }} </span><br />
+                  <div *ngIf="addSliderImgView; else bla">
+                    <img
+                      [src]="addImage"
+                      style="margin-bottom: 10px; width: 150px; height: 100px"
+                      id="add-image"
+                    />
+                  </div>
+                  <ng-template #bla>
+                    <img
+                      [src]=""
+                      style="margin-bottom: 10px; width: 150px; height: 100px"
+                      id="add-image"
+                    />
+                  </ng-template>
+                  <input
+                    type="file"
+                    tabindex="1"
+                    accept="image/*"
+                    id="add_upload_image"
+                    class="form-control"
+                    #fileInput
+                    (change)="uploadImage($event)"
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="slider_header_text" class="label-field"
+                    >Slider Header Text</label
+                  >
+                  <span class="error"> {{ sliderHeaderTextErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="2"
+                    placeholder="Slider Header Text"
+                    class="form-control"
+                    formControlName="slider_header_text"
+                  />
+                </div>
+                <div class="field">
+                  <label for="slider_para_text" class="label-field"
+                    >Slider Para Text</label
+                  >
+                  <span class="error"> {{ sliderParaTextErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="3"
+                    placeholder="Slider Para Text"
+                    class="form-control"
+                    formControlName="slider_para_text"
+                  />
+                </div>
+                <div class="field">
+                  <label for="slider_button_text" class="label-field"
+                    >Slider Button Text</label
+                  >
+                  <span class="error"> {{ sliderButtonTextErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="4"
+                    placeholder="Slider Button Text"
+                    class="form-control"
+                    formControlName="slider_button_text"
+                  />
+                </div>
+                <div class="field">
+                  <label for="slider_button_url" class="label-field"
+                    >Slider Button URL</label
+                  >
+                  <span class="error"> {{ sliderButtonURLErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="5"
+                    placeholder="Slider Button URL"
+                    class="form-control"
+                    formControlName="slider_button_url"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="saveload">
+              <button
+                type="submit"
+                tabindex="6"
+                class="btn btn-primary"
+                (click)="addSliders()"
+              >
+                Save
+              </button>
+              <label
+                class="alert-success"
+                style="font-weight: bold; padding: 8px; margin-left: 15px"
+                *ngIf="message"
+              >
+                {{ message }}</label
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Sale & Revenue End -->
+
+    <app-footer></app-footer>
+  </div>
+  <!-- Content End -->
+</div>

@@ -1,0 +1,66 @@
+<div class="container-xxl position-relative bg-white d-flex p-0">
+  <app-sidebar></app-sidebar>
+
+  <!-- Content Start -->
+  <div class="content">
+    <app-top></app-top>
+
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4">
+      <div class="row g-4">
+        <div class="col-sm-6 col-xl-3">
+          <div
+            class="bg-light rounded d-flex align-items-center justify-content-between p-4"
+            (click)="navigateURL('/genres/page/1')"
+          >
+            <i class="fa fa-folder fa-3x text-primary"></i>
+            <div class="ms-3">
+              <p class="mb-2">Genres</p>
+              <h6 class="mb-0">{{ genreCount }}</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div
+            class="bg-light rounded d-flex align-items-center justify-content-between p-4"
+            (click)="navigateURL('/podcasters/page/1')"
+          >
+            <i class="fa fa-user fa-3x text-primary"></i>
+            <div class="ms-3">
+              <p class="mb-2">Podcasters</p>
+              <h6 class="mb-0">{{ podcasterCount }}</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div
+            class="bg-light rounded d-flex align-items-center justify-content-between p-4"
+            (click)="navigateURL('/episodes/page/1')"
+          >
+            <i class="fa fa-comments fa-3x text-primary"></i>
+            <div class="ms-3">
+              <p class="mb-2">Episodes</p>
+              <h6 class="mb-0">{{ episodeCount }}</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div
+            class="bg-light rounded d-flex align-items-center justify-content-between p-4"
+            (click)="navigateURL('/subscribers/page/1')"
+          >
+            <i class="fa fa-users fa-3x text-primary"></i>
+            <div class="ms-3">
+              <p class="mb-2">Subscribers</p>
+              <h6 class="mb-0">{{ subscriberCount }}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Sale & Revenue End -->
+
+    <!-- <app-footer></app-footer> -->
+  </div>
+  <!-- Content End -->
+</div>

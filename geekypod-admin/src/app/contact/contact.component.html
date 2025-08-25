@@ -1,0 +1,148 @@
+<div class="container-xxl position-relative bg-white d-flex p-0">
+  <app-sidebar></app-sidebar>
+
+  <!-- Content Start -->
+  <div class="content">
+    <app-top></app-top>
+
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4">
+      <div class="row g-4">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+          <div class="float-start">
+            <h4>Contact</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-12">
+          <form [formGroup]="addContactForm">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="field">
+                  <label for="google_form" class="label-field"
+                    >Google Form</label
+                  >
+                  <span class="error"> * {{ googleFormErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="1"
+                    placeholder="Google Form Link"
+                    class="form-control"
+                    formControlName="google_form_link"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="field">
+                  <label for="contact_email" class="label-field">Email</label>
+                  <span class="error"> * {{ emailErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="2"
+                    placeholder="Email"
+                    class="form-control"
+                    formControlName="contact_email"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="field">
+                  <label for="mobile_no" class="label-field">Mobile no.</label>
+                  <span class="error"> * {{ mobileNoErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="3"
+                    placeholder="Mobile Number"
+                    class="form-control"
+                    formControlName="mobile_no"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="field">
+                  <label for="address" class="label-field">Address</label>
+                  <span class="error"> * {{ addressErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="4"
+                    placeholder="Address"
+                    class="form-control"
+                    formControlName="address"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="field">
+                  <label for="spotify_link" class="label-field"
+                    >Spotify Link</label
+                  >
+                  <span class="error"> {{ spotifyLinkErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="5"
+                    placeholder="Spotify Link"
+                    class="form-control"
+                    formControlName="spotify_link"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="field">
+                  <label for="youtube_link" class="label-field"
+                    >Youtube Link</label
+                  >
+                  <span class="error"> {{ ytLinkErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="6"
+                    placeholder="Youtube Link"
+                    class="form-control"
+                    formControlName="youtube_link"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="field">
+                  <label for="instagram_link" class="label-field"
+                    >Instagram Link</label
+                  >
+                  <span class="error"> {{ instaLinkErr }} </span>
+                  <input
+                    type="text"
+                    tabindex="7"
+                    placeholder="Youtube Link"
+                    class="form-control"
+                    formControlName="instagram_link"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="saveload">
+              <button
+                type="submit"
+                tabindex="8"
+                class="btn btn-primary"
+                (click)="addContacts()"
+              >
+                Save
+              </button>
+              <label
+                class="alert-success"
+                style="font-weight: bold; padding: 8px; margin-left: 15px"
+                *ngIf="message"
+              >
+                {{ message }}</label
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Sale & Revenue End -->
+
+    <app-footer></app-footer>
+  </div>
+  <!-- Content End -->
+</div>

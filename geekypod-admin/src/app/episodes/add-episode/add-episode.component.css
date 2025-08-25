@@ -1,0 +1,10 @@
+.error {
+  font-weight: bold;
+  color: rgb(255, 0, 0);
+}
+label {
+  font-weight: bolder;
+}
+.field {
+  margin-bottom: 5px;
+}

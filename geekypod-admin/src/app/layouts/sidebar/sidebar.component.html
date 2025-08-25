@@ -1,0 +1,59 @@
+<!-- Sidebar Start -->
+<div class="sidebar pe-4 pb-3">
+  <nav class="navbar bg-light navbar-light">
+    <a routerLink="/home" class="navbar-brand mx-4 mb-3">
+      <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>GEEKYPOD</h3>
+    </a>
+
+    <div class="navbar-nav w-100">
+      <a
+        routerLink="/home"
+        class="nav-item nav-link"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a
+      >
+      <a routerLink="/about" class="nav-item nav-link" routerLinkActive="active"
+        ><i class="fa fa-child"></i>About</a
+      >
+      <a
+        routerLink="/sliders/page/1"
+        class="nav-item nav-link"
+        routerLinkActive="active"
+        ><i class="fa fa-film me-2"></i>Sliders</a
+      >
+      <a
+        routerLink="/genres/page/1"
+        class="nav-item nav-link"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><i class="fa fa-folder me-2"></i>Genres</a
+      >
+      <a
+        routerLink="/podcasters/page/1"
+        class="nav-item nav-link"
+        routerLinkActive="active"
+        ><i class="fa fa-user me-2"></i>Podcasters</a
+      >
+      <a
+        routerLink="/episodes/page/1"
+        class="nav-item nav-link"
+        routerLinkActive="active"
+        ><i class="fa fa-comments me-2"></i>Episodes</a
+      >
+      <a
+        routerLink="/contact"
+        class="nav-item nav-link"
+        routerLinkActive="active"
+        ><i class="fa fa-envelope-open"></i>Contact</a
+      >
+      <a
+        routerLink="/subscribers/page/1"
+        class="nav-item nav-link"
+        routerLinkActive="active"
+        ><i class="fa fa-users me-2"></i>Subscribers</a
+      >
+    </div>
+  </nav>
+</div>
+<!-- Sidebar End -->

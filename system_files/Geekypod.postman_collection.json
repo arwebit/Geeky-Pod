@@ -1,0 +1,1192 @@
+{
+	"info": {
+		"_postman_id": "fc157764-1759-49f3-8823-04ac4a295a2f",
+		"name": "Geekypod",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24253958"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"manash\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/users/login",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users based on conditions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filter\": {\r\n        \"condition\":[\r\n            [\"user_id\", \"=\", 1]\r\n        ]\r\n    },\r\n    \"start_row\":0,\r\n    \"page_records\": 5,\r\n    \"sort_field\": \"user_id\",\r\n    \"sort\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"old_password\": \"admin\",\r\n    \"new_password\": \"manash\",\r\n    \"confirm_password\": \"manash\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/users/change_password?user_id=1",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"users",
+								"change_password"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"full_name\": \"Manash Chakraborty\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/users?user_id=1",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Genres",
+			"item": [
+				{
+					"name": "Get all genres based on conditions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filter\": {\r\n        \"condition\":[]\r\n    },\r\n    \"start_row\":0,\r\n    \"page_records\": 10,\r\n    \"sort_field\": \"\",\r\n    \"sort\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/genres",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Genres",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "genre_name",
+									"value": "Information Technology",
+									"type": "text"
+								},
+								{
+									"key": "genre_slug",
+									"value": "information-technology",
+									"type": "text"
+								},
+								{
+									"key": "genre_image",
+									"type": "file",
+									"src": "/C:/Users/SOUMYANJAN DEY/Desktop/Sample pics/6.jpg"
+								},
+								{
+									"key": "is_popular",
+									"value": "yes",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/genres/add",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"genres",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Genres",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "genre_name",
+									"value": "Techniqual",
+									"type": "text"
+								},
+								{
+									"key": "genre_slug",
+									"value": "techniqual",
+									"type": "text"
+								},
+								{
+									"key": "genre_image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "is_active",
+									"value": "yes",
+									"type": "text"
+								},
+								{
+									"key": "is_popular",
+									"value": "no",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/genres/update?genre_id=1",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"genres",
+								"update"
+							],
+							"query": [
+								{
+									"key": "genre_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Genres",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{geekypod_url}}/genres?genre_id=1",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"genres"
+							],
+							"query": [
+								{
+									"key": "genre_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Podcasters",
+			"item": [
+				{
+					"name": "Get all podcasters based on conditions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filter\": {\r\n        \"condition\":[]\r\n    },\r\n    \"start_row\":0,\r\n    \"page_records\": 2,\r\n    \"sort_field\": \"\",\r\n    \"sort\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/podcasters",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"podcasters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Podcasters",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "podcaster_full_name",
+									"value": "Soumyanjan Dey",
+									"type": "text"
+								},
+								{
+									"key": "podcaster_slug",
+									"value": "soumyanjan-dey",
+									"type": "text"
+								},
+								{
+									"key": "podcaster_image",
+									"type": "file",
+									"src": "/C:/Users/SOUMYANJAN DEY/Desktop/Sample pics/4.jpg"
+								},
+								{
+									"key": "podcaster_bio",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "podcaster_designation",
+									"value": "Web Developer",
+									"type": "text"
+								},
+								{
+									"key": "podcaster_popular",
+									"value": "no",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/podcasters/add",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"podcasters",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Podcasters",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "podcaster_full_name",
+									"value": "Soumyanjan Dey",
+									"type": "text"
+								},
+								{
+									"key": "podcaster_slug",
+									"value": "soumyanjan-dey",
+									"type": "text"
+								},
+								{
+									"key": "podcaster_image",
+									"type": "file",
+									"src": "/C:/Users/SOUMYANJAN DEY/Desktop/Sample pics/6.jpg"
+								},
+								{
+									"key": "podcaster_bio",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "podcaster_designation",
+									"value": "Web Developer",
+									"type": "text"
+								},
+								{
+									"key": "podcaster_popular",
+									"value": "no",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "yes",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/podcasters/update?podcaster_id=1",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"podcasters",
+								"update"
+							],
+							"query": [
+								{
+									"key": "podcaster_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Podcasters",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{geekypod_url}}/podcasters?podcaster_id=1",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"podcasters"
+							],
+							"query": [
+								{
+									"key": "podcaster_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sliders",
+			"item": [
+				{
+					"name": "Get all sliders based on conditions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filter\": {\r\n        \"condition\":[]\r\n    },\r\n    \"start_row\":0,\r\n    \"page_records\": 1000,\r\n    \"sort_field\": \"\",\r\n    \"sort\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/sliders",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"sliders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sliders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "slider_header_text",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "slider_para_text",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "slider_button_text",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "slider_button_url",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "slider_image",
+									"type": "file",
+									"src": "/C:/Users/SOUMYANJAN DEY/Desktop/Sample pics/4.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/sliders/add",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"sliders",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sliders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "slider_header_text",
+									"value": "We learn",
+									"type": "text"
+								},
+								{
+									"key": "slider_para_text",
+									"value": "We text",
+									"type": "text"
+								},
+								{
+									"key": "slider_button_text",
+									"value": "Go to about",
+									"type": "text"
+								},
+								{
+									"key": "slider_button_url",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "slider_image",
+									"type": "file",
+									"src": "/C:/Users/SOUMYANJAN DEY/Desktop/Sample pics/6.jpg"
+								},
+								{
+									"key": "is_active",
+									"value": "yes",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/sliders/update?slider_id=1",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"sliders",
+								"update"
+							],
+							"query": [
+								{
+									"key": "slider_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sliders",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{geekypod_url}}/sliders?slider_id=1",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"sliders"
+							],
+							"query": [
+								{
+									"key": "slider_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Episodes",
+			"item": [
+				{
+					"name": "Get all episodes based on conditions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filter\": {\r\n        \"condition\":[]\r\n    },\r\n    \"start_row\":0,\r\n    \"page_records\": 1,\r\n    \"sort_field\": \"episode_date\",\r\n    \"sort\": -1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/episodes",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"episodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Episodes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "episode_season",
+									"value": "Season-I",
+									"type": "text"
+								},
+								{
+									"key": "episode_no",
+									"value": "Episode no. 3",
+									"type": "text"
+								},
+								{
+									"key": "episode_title",
+									"value": "Condition in ",
+									"type": "text"
+								},
+								{
+									"key": "episode_title_slug",
+									"value": "condition-in",
+									"type": "text"
+								},
+								{
+									"key": "episode_description",
+									"value": "Weather Desc in ii",
+									"type": "text"
+								},
+								{
+									"key": "episode_image",
+									"type": "file",
+									"src": "/C:/Users/SOUMYANJAN DEY/Desktop/Sample pics/6.jpg"
+								},
+								{
+									"key": "podcaster_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "genre_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "episode_spotify_link",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "episode_youtube_link",
+									"value": "https://www.youtube.com/watch?v=APEgZRjRN08",
+									"type": "text"
+								},
+								{
+									"key": "episode_date",
+									"value": "2024-05-30",
+									"type": "text"
+								},
+								{
+									"key": "is_popular",
+									"value": "yes",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/episodes/add",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"episodes",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Episodes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "episode_season",
+									"value": "Season-I",
+									"type": "text"
+								},
+								{
+									"key": "episode_no",
+									"value": "Episode no. 3",
+									"type": "text"
+								},
+								{
+									"key": "episode_title",
+									"value": "Weather condition in rr",
+									"type": "text"
+								},
+								{
+									"key": "episode_title_slug",
+									"value": "weather-condition-in-rr",
+									"type": "text"
+								},
+								{
+									"key": "episode_description",
+									"value": "Weather Description",
+									"type": "text"
+								},
+								{
+									"key": "episode_image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "podcaster_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "genre_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "episode_spotify_link",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "episode_youtube_link",
+									"value": "https://www.youtube.com/watch?v=APEgZRjRN08",
+									"type": "text"
+								},
+								{
+									"key": "episode_date",
+									"value": "2024-05-31",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "yes",
+									"type": "text"
+								},
+								{
+									"key": "is_popular",
+									"value": "no",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/episodes/update?episode_id=3",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"episodes",
+								"update"
+							],
+							"query": [
+								{
+									"key": "episode_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Episodes",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{geekypod_url}}/episodes?episode_id=3",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"episodes"
+							],
+							"query": [
+								{
+									"key": "episode_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscribers",
+			"item": [
+				{
+					"name": "Get all subscribers based on conditions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filter\": {\r\n        \"condition\":[]\r\n    },\r\n    \"start_row\":0,\r\n    \"page_records\": 2,\r\n    \"sort_field\": \"\",\r\n    \"sort\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/subscribers",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"subscribers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Subscribers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subscriber_email\":\"arweb@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/subscribers/add",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"subscribers",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Subscribers",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{geekypod_url}}/subscribers?subscriber_id=1",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"subscribers"
+							],
+							"query": [
+								{
+									"key": "subscriber_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "Episode by slug",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filter\": {\r\n        \"condition\": []\r\n    },\r\n    \"start_row\": 0,\r\n    \"page_records\": 10,\r\n    \"sort_field\": \"\",\r\n    \"sort\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/search/slug/episode?slug=it-infrastructure-in-india",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"search",
+								"slug",
+								"episode"
+							],
+							"query": [
+								{
+									"key": "slug",
+									"value": "it-infrastructure-in-india"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Genres by slug",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filter\": {\r\n        \"condition\": []\r\n    },\r\n    \"start_row\": 0,\r\n    \"page_records\": 2,\r\n    \"sort_field\": \"\",\r\n    \"sort\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/search/slug/genre?slug=technology",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"search",
+								"slug",
+								"genre"
+							],
+							"query": [
+								{
+									"key": "slug",
+									"value": "technology"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Podcaster by slug",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filter\": {\r\n        \"condition\": []\r\n    },\r\n    \"start_row\": 0,\r\n    \"page_records\": 10,\r\n    \"sort_field\": \"\",\r\n    \"sort\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/search/slug/podcaster?slug=soumyanjan-dey",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"search",
+								"slug",
+								"podcaster"
+							],
+							"query": [
+								{
+									"key": "slug",
+									"value": "soumyanjan-dey"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "Save contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"google_form_link\": \"https://www.youtube.com/@codingwitharweb\",\r\n    \"contact_email\": \"https://www.youtube.com/@codingwitharweb\",\r\n    \"mobile_no\": \"\",\r\n    \"address\": \"\",\r\n    \"instagram_link\": \"https://www.youtube.com/@codingwitharweb\",\r\n    \"youtube_link\": \"\",\r\n    \"spotify_link\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/contact",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get contact details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/contact",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"contact"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "About",
+			"item": [
+				{
+					"name": "Save about",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "about_me",
+									"value": "Hi Iam manash",
+									"type": "text"
+								},
+								{
+									"key": "about_pic",
+									"type": "file",
+									"src": "/C:/Users/SOUMYANJAN DEY/Desktop/geeky_pod_about.jpg"
+								},
+								{
+									"key": "about_button_text",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "about_button_link",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/about",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"about"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get about details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{geekypod_url}}/about",
+							"host": [
+								"{{geekypod_url}}"
+							],
+							"path": [
+								"about"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard records",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{geekypod_url}}/dashboard/records",
+					"host": [
+						"{{geekypod_url}}"
+					],
+					"path": [
+						"dashboard",
+						"records"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
